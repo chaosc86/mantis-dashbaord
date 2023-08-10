@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 // material-ui
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import { Grid, Typography } from '@mui/material';
@@ -15,6 +15,7 @@ const Breadcrumbs = ({ navigation, title, ...others }) => {
   const location = useLocation();
   const [main, setMain] = useState();
   const [item, setItem] = useState();
+  const { t } = useTranslation();
 
   // set active item state
   const getCollapse = (menu) => {
@@ -56,7 +57,7 @@ const Breadcrumbs = ({ navigation, title, ...others }) => {
   if (main && main.type === 'collapse') {
     mainContent = (
       <Typography component={Link} to={document.location.pathname} variant="h6" sx={{ textDecoration: 'none' }} color="textSecondary">
-        {main.title}
+        {t(main.title)}
       </Typography>
     );
   }
@@ -66,27 +67,27 @@ const Breadcrumbs = ({ navigation, title, ...others }) => {
     itemTitle = item.title;
     itemContent = (
       <Typography variant="subtitle1" color="textPrimary">
-        {itemTitle}
+        {t(itemTitle)}
       </Typography>
     );
 
     // main
     if (item.breadcrumbs !== false) {
       breadcrumbContent = (
-        <MainCard border={false} sx={{ mb: 3, bgcolor: 'transparent' }} {...others} content={false}>
+        <MainCard border={false} sx={{ /*mb: 1,*/ bgcolor: 'transparent' }} {...others} content={false}>
           <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
             <Grid item>
               <MuiBreadcrumbs aria-label="breadcrumb">
                 <Typography component={Link} to="/" color="textSecondary" variant="h6" sx={{ textDecoration: 'none' }}>
-                  Home
+                  {t('Home')}
                 </Typography>
                 {mainContent}
                 {itemContent}
               </MuiBreadcrumbs>
             </Grid>
             {title && (
-              <Grid item sx={{ mt: 2 }}>
-                <Typography variant="h5">{item.title}</Typography>
+              <Grid item /*sx={{ mt: 1 }}*/>
+                <Typography variant="h5">{/*t(item.title)*/}</Typography>
               </Grid>
             )}
           </Grid>

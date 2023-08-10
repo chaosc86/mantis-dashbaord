@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { forwardRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -16,6 +17,7 @@ const NavItem = ({ item, level }) => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   const { drawerOpen, openItem } = useSelector((state) => state.menu);
 
@@ -34,7 +36,10 @@ const NavItem = ({ item, level }) => {
   };
 
   const Icon = item.icon;
-  const itemIcon = item.icon ? <Icon style={{ fontSize: drawerOpen ? '1rem' : '1.25rem' }} /> : false;
+  let itemIcon = item.icon ? <Icon style={{ fontSize: drawerOpen ? '1rem' : '1.25rem' }} /> : false;
+  if (item.icontype && item.icontype === 'tsx') {
+    itemIcon = Icon;
+  }
 
   const isSelected = openItem.findIndex((id) => id === item.id) > -1;
   // active menu item on page load
@@ -116,7 +121,7 @@ const NavItem = ({ item, level }) => {
         <ListItemText
           primary={
             <Typography variant="h6" sx={{ color: isSelected ? iconSelectedColor : textColor }}>
-              {item.title}
+              {t(item.title)}
             </Typography>
           }
         />

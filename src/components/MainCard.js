@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -10,7 +11,9 @@ import Highlighter from './third-party/Highlighter';
 
 // header style
 const headerSX = {
-  p: 2.5,
+  //p: 2.5,
+  p: 1,
+  pb: 0,
   '& .MuiCardHeader-action': { m: '0px auto', alignSelf: 'center' }
 };
 
@@ -23,7 +26,9 @@ const MainCard = forwardRef(
       boxShadow,
       children,
       content = true,
-      contentSX = {},
+      contentSX = {
+        /*p: 0.5 */
+      },
       darkTitle,
       elevation,
       secondary,
@@ -37,7 +42,7 @@ const MainCard = forwardRef(
   ) => {
     const theme = useTheme();
     boxShadow = theme.palette.mode === 'dark' ? boxShadow || true : boxShadow;
-
+    const { t } = useTranslation();
     return (
       <Card
         elevation={elevation || 0}
@@ -62,9 +67,9 @@ const MainCard = forwardRef(
       >
         {/* card header and action */}
         {!darkTitle && title && (
-          <CardHeader sx={headerSX} titleTypographyProps={{ variant: 'subtitle1' }} title={title} action={secondary} />
+          <CardHeader sx={headerSX} titleTypographyProps={{ variant: 'subtitle1' }} title={t(title)} action={secondary} />
         )}
-        {darkTitle && title && <CardHeader sx={headerSX} title={<Typography variant="h3">{title}</Typography>} action={secondary} />}
+        {darkTitle && title && <CardHeader sx={headerSX} title={<Typography variant="h3">{t(title)}</Typography>} action={secondary} />}
 
         {/* card content */}
         {content && <CardContent sx={contentSX}>{children}</CardContent>}

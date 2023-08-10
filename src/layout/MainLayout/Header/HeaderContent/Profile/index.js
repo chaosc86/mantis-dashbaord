@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -26,7 +27,7 @@ import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
 
 // assets
-import avatar1 from 'assets/images/users/avatar-1.png';
+import avatar1 from 'assets/images/users/avatar.png';
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 
 // tab panel wrapper
@@ -55,7 +56,7 @@ function a11yProps(index) {
 
 const Profile = () => {
   const theme = useTheme();
-
+  const { t } = useTranslation();
   const handleLogout = async () => {
     // logout
   };
@@ -98,7 +99,7 @@ const Profile = () => {
       >
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
           <Avatar alt="profile user" src={avatar1} sx={{ width: 32, height: 32 }} />
-          <Typography variant="subtitle1">John Doe</Typography>
+          <Typography variant="subtitle1"></Typography>
         </Stack>
       </ButtonBase>
       <Popper
@@ -141,9 +142,9 @@ const Profile = () => {
                           <Stack direction="row" spacing={1.25} alignItems="center">
                             <Avatar alt="profile user" src={avatar1} sx={{ width: 32, height: 32 }} />
                             <Stack>
-                              <Typography variant="h6">John Doe</Typography>
+                              <Typography variant="h6">chaosc86</Typography>
                               <Typography variant="body2" color="textSecondary">
-                                UI/UX Designer
+                                ZroDoom#0392
                               </Typography>
                             </Stack>
                           </Stack>
@@ -168,7 +169,7 @@ const Profile = () => {
                                 textTransform: 'capitalize'
                               }}
                               icon={<UserOutlined style={{ marginBottom: 0, marginRight: '10px' }} />}
-                              label="Profile"
+                              label={t('Profile')}
                               {...a11yProps(0)}
                             />
                             <Tab
@@ -180,7 +181,7 @@ const Profile = () => {
                                 textTransform: 'capitalize'
                               }}
                               icon={<SettingOutlined style={{ marginBottom: 0, marginRight: '10px' }} />}
-                              label="Setting"
+                              label={t('Setting')}
                               {...a11yProps(1)}
                             />
                           </Tabs>

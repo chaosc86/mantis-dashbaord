@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -66,6 +67,7 @@ const Notification = () => {
   const iconBackColorOpen = 'grey.300';
   const iconBackColor = 'grey.100';
 
+  const { t } = useTranslation();
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
       <IconButton
@@ -115,7 +117,7 @@ const Notification = () => {
             >
               <ClickAwayListener onClickAway={handleClose}>
                 <MainCard
-                  title="Notification"
+                  title={t('Notification')}
                   elevation={0}
                   border={false}
                   content={false}

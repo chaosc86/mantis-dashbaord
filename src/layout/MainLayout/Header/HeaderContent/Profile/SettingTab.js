@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -16,6 +17,7 @@ const SettingTab = () => {
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
+  const { t } = useTranslation();
 
   return (
     <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32, color: theme.palette.grey[500] } }}>
@@ -23,31 +25,31 @@ const SettingTab = () => {
         <ListItemIcon>
           <QuestionCircleOutlined />
         </ListItemIcon>
-        <ListItemText primary="Support" />
+        <ListItemText primary={t('Support')} />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1)}>
         <ListItemIcon>
           <UserOutlined />
         </ListItemIcon>
-        <ListItemText primary="Account Settings" />
+        <ListItemText primary={t('Account Settings')} />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2)}>
         <ListItemIcon>
           <LockOutlined />
         </ListItemIcon>
-        <ListItemText primary="Privacy Center" />
+        <ListItemText primary={t('Privacy Center')} />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3)}>
         <ListItemIcon>
           <CommentOutlined />
         </ListItemIcon>
-        <ListItemText primary="Feedback" />
+        <ListItemText primary={t('Feedback')} />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)}>
         <ListItemIcon>
           <UnorderedListOutlined />
         </ListItemIcon>
-        <ListItemText primary="History" />
+        <ListItemText primary={t('History')} />
       </ListItemButton>
     </List>
   );
