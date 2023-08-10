@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-
+import './i18n';
 // scroll bar
 import 'simplebar/src/simplebar.css';
 
@@ -23,7 +23,7 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(
   <StrictMode>
     <ReduxProvider store={store}>
-      <BrowserRouter basename="/free">
+      <BrowserRouter basename="/">
         <App />
       </BrowserRouter>
     </ReduxProvider>
