@@ -3,6 +3,7 @@ import { Box, IconButton, Link, useMediaQuery } from '@mui/material';
 import { GithubOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
+import { useEffect } from 'react';
 
 // project import
 import Search from './Search';
@@ -14,7 +15,11 @@ import MobileSection from './MobileSection';
 const HeaderContent = () => {
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
-  const { t } = useTranslation();
+
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage(localStorage.getItem('Language') || 'en');
+  }, []);
 
   return (
     <>
