@@ -80,16 +80,16 @@ const Profile = () => {
     setValue(newValue);
   };
 
-  const iconBackColorOpen = 'grey.300';
+  //const iconBackColorOpen = 'grey.300';
 
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
       <ButtonBase
         sx={{
           p: 0.25,
-          bgcolor: open ? iconBackColorOpen : 'transparent',
+          bgcolor: open ? theme.palette.background.default : theme.palette.background.paper, //iconBackColorOpen : 'transparent',
           borderRadius: 1,
-          '&:hover': { bgcolor: 'secondary.lighter' }
+          '&:hover': { bgcolor: theme.palette.background.default /*'secondary.lighter'*/ }
         }}
         aria-label="open profile"
         ref={anchorRef}

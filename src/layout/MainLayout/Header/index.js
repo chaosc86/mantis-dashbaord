@@ -17,9 +17,8 @@ const Header = ({ open, handleDrawerToggle }) => {
   const theme = useTheme();
   const matchDownMD = useMediaQuery(theme.breakpoints.down('lg'));
 
-  const iconBackColor = 'grey.100';
-  const iconBackColorOpen = 'grey.200';
-
+  //const iconBackColor = 'grey.100';
+  //const iconBackColorOpen = 'grey.200';
   // common header
   const mainHeader = (
     <Toolbar>
@@ -29,7 +28,12 @@ const Header = ({ open, handleDrawerToggle }) => {
         onClick={handleDrawerToggle}
         edge="start"
         color="secondary"
-        sx={{ color: 'text.primary', bgcolor: open ? iconBackColorOpen : iconBackColor, ml: { xs: 0, lg: -2 } }}
+        sx={{
+          color: 'text.primary',
+          bgcolor: open ? theme.palette.background.default : theme.palette.background.paper,
+          '&:hover': { bgcolor: theme.palette.background.default },
+          ml: { xs: 0, lg: -2 }
+        }}
       >
         {!open ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </IconButton>

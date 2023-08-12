@@ -48,7 +48,8 @@ const MobileSection = () => {
           component="span"
           disableRipple
           sx={{
-            bgcolor: open ? 'grey.300' : 'grey.100'
+            bgcolor: theme.palette.background.paper, //open ? 'grey.300' : 'grey.100'
+            '&:hover': { bgcolor: theme.palette.background.default }
           }}
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
