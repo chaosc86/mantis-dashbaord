@@ -24,6 +24,15 @@ const Services = () => (
         src={`${process.env.REACT_APP_DOMAIN}/uptime`}
       />
     </MainCard>
+    <MainCard title="Ansible Semaphore">
+      <IFrameWrapper
+        allowFullScreen
+        webkitAllowFullScreen
+        mozAllowFullScreen
+        width="100%"
+        src={`${process.env.REACT_APP_DOMAIN}/ansible`}
+      />
+    </MainCard>
     <MainCard title="System">
       <IFrameWrapper
         title="System"

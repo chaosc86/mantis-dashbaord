@@ -32,6 +32,7 @@ const Vtubers = Loadable(lazy(() => import('pages/components-overview/h5ai/vtube
 // render - services
 const Services = Loadable(lazy(() => import('pages/services')));
 const UptimeKuma = Loadable(lazy(() => import('pages/services/uptimekuma')));
+const AnsibleSemaphore = Loadable(lazy(() => import('pages/services/ansiblesemaphore')));
 const System = Loadable(lazy(() => import('pages/services/system')));
 
 // ==============================|| MAIN ROUTING ||============================== //
@@ -126,6 +127,11 @@ const MainRoutes = {
           path: 'uptime-kuma',
           element: <UptimeKuma />
         },
+        {
+          path: 'ansible',
+          element: <AnsibleSemaphore />
+        },
+
         {
           path: 'system',
           element: <System />

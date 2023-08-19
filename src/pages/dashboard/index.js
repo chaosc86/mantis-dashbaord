@@ -21,6 +21,7 @@ import Wifi from '../../assets/images/icons/wifiqrcode.png';
 import GoHttpServer from '../../assets/images/icons/golang.png';
 import _h5ai from '../../assets/images/icons/_h5ai.png';
 import Uptimekuma from '../../assets/images/icons/uptimekuma.png';
+import AnsibleSemaphore from '../../assets/images/icons/AnsibleSemaphore.png';
 import Raspberrypi from '../../assets/images/icons/raspberrypi.png';
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
@@ -191,8 +192,9 @@ const DashboardDefault = () => {
               </Grid>
               <Grid item>
                 <AvatarGroup sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}>
-                  <Avatar alt="_h5ai" src={Uptimekuma} />
-                  <Avatar alt="_h5ai" src={Raspberrypi} />
+                  <Avatar alt="Uptimekuma" src={Uptimekuma} />
+                  <Avatar alt="AnsibleSemaphore" src={AnsibleSemaphore} />
+                  <Avatar alt="Raspberrypi" src={Raspberrypi} />
                 </AvatarGroup>
               </Grid>
             </Grid>
@@ -204,6 +206,15 @@ const DashboardDefault = () => {
             >
               <Avatar alt="Uptime kuma" src={Uptimekuma} sx={{ mr: 2 }} />
               {t('Uptime Kuma')}
+            </Button>
+            <Button
+              href={`${process.env.REACT_APP_DOMAIN}/ansible`}
+              variant="contained"
+              target="_blank"
+              sx={{ textTransform: 'capitalize' }}
+            >
+              <Avatar alt="Ansible Semaphore" src={AnsibleSemaphore} sx={{ mr: 2 }} />
+              {t('Ansible Semaphore')}
             </Button>
             <Button
               href={`${process.env.REACT_APP_DOMAIN}/system`}

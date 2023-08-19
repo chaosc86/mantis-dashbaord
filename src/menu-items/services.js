@@ -3,6 +3,7 @@ import { Avatar } from '@mui/material';
 // assets
 import Uptimekuma from '../assets/images/icons/uptimekuma.png';
 import Raspberrypi from '../assets/images/icons/raspberrypi.png';
+import AnsibleSemaphore from '../assets/images/icons/AnsibleSemaphore.png';
 // ==============================|| MENU ITEMS - SERVICES ||============================== //
 
 const services = {
@@ -18,6 +19,14 @@ const services = {
       url: '/services/uptime-kuma',
       icontype: 'tsx',
       icon: <Avatar alt="Uptimekuma" src={Uptimekuma} sx={{ mr: 2 }} />
+    },
+    {
+      id: 'ansible',
+      title: 'Ansible Semaphore',
+      type: 'item',
+      url: '/services/ansible',
+      icontype: 'tsx',
+      icon: <Avatar alt="_h5ai" src={AnsibleSemaphore} sx={{ mr: 2 }} />
     },
     {
       id: 'system',
